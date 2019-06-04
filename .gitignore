@@ -1,3 +1,7 @@
+# local development
+.env.*
+.vscode
+
 # Logs
 logs
 *.log
