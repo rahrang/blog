@@ -13,11 +13,13 @@ const colors = {
 
 const theme = {
   contentWidth: '900px',
-  br: `4px`,
+  br: `0.25rem`,
 };
 
 const lightTheme = {
+  bxs: '0 1px 3px rgba(0, 0, 0, 0.16), 0 1px 3px rgba(0, 0, 0, 0.23)',
   bgColor: colors.white,
+  offBgColor: 'white',
   textColor: colors.black,
   headingColor: colors.blue,
   linkColor: colors.blue,
@@ -26,12 +28,14 @@ const lightTheme = {
 };
 
 const darkTheme = {
+  bxs: '0px 0px 2px 1px white',
   bgColor: colors.black,
   textColor: colors.white,
   headingColor: colors.white,
   linkColor: colors.gold,
   activeColor: colors.gold,
   linkHoverColor: colors.blue,
+  offBgColor: 'black',
 };
 
 const themeKeyMap = {

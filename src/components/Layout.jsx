@@ -3,14 +3,18 @@ import PropTypes from 'prop-types';
 import { StaticQuery, graphql } from 'gatsby';
 import { ThemeProvider } from 'styled-components';
 
-import '../../styles/normalize.scss';
-import SEO from '../seo';
-import { getInitialTheme, getTheme, setTheme } from '../../util/theme';
-import GlobalStyle from './GlobalStyle';
-import LayoutStyles from './styles';
-import Navbar from '../Navbar';
-// import Footer from 'components/Footer';
-import SwitchTheme from '../SwitchTheme';
+import {
+  GlobalStyle,
+  getInitialTheme,
+  getTheme,
+  setTheme,
+  Navbar,
+  Footer,
+  SwitchThemeButton,
+} from '@rahrang/frame';
+
+import '../styles/normalize.scss';
+import SEO from './seo';
 
 class Layout extends React.Component {
   state = {
@@ -42,8 +46,8 @@ class Layout extends React.Component {
             <ThemeProvider theme={getTheme(themeKey)}>
               <React.Fragment>
                 <GlobalStyle />
-                <LayoutStyles>
-                  <SwitchTheme
+                <div>
+                  <SwitchThemeButton
                     onClick={this.switchTheme}
                     currThemeKey={themeKey}
                   />
@@ -51,7 +55,8 @@ class Layout extends React.Component {
                   <div className="content-container page-container">
                     {children}
                   </div>
-                </LayoutStyles>
+                  <Footer />
+                </div>
               </React.Fragment>
             </ThemeProvider>
           </React.Fragment>

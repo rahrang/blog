@@ -1,8 +1,10 @@
 import React from 'react';
 import { graphql } from 'gatsby';
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
+import { BLOCKS } from '@contentful/rich-text-types';
+import _isUndefined from 'lodash/isUndefined';
 
-import Layout from '../components/layout/Layout';
+import Layout from '../components/Layout';
 import SEO from '../components/seo';
 
 import getContentfulImage from '../util/getContentfulImage';
@@ -15,7 +17,11 @@ export const BlogPostQuery = graphql`
       body {
         json
       }
-      # backgroundImage
+      backgroundImage {
+        file {
+          url
+        }
+      }
       publishedAt(formatString: "MMMM Do, YYYY")
       # lastUpdated(formatString: "MMMM Do, YYYY")
       tags
@@ -23,18 +29,22 @@ export const BlogPostQuery = graphql`
   }
 `;
 
+const options = {
+  renderNode: {
+    [BLOCKS.EMBEDDED_ASSET]: node => {
+      const { title, description, src } = getContentfulImage(node);
+      if (_isUndefined(src)) {
+        return null;
+      }
+
+      return <img src={src} alt={`${title}: ${description}`} />;
+    },
+  },
+};
+
 class BlogPost extends React.Component {
   render() {
     const blogPost = this.props.data.contentfulBlogPost;
-
-    const options = {
-      renderNode: {
-        'embedded-asset-block': node => {
-          const { title, description, src } = getContentfulImage(node);
-          return <img src={src} alt={`${title}: ${description}`} />;
-        },
-      },
-    };
 
     return (
       <Layout>

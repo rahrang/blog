@@ -1,9 +1,9 @@
 import React from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
 
-import Layout from '../components/layout/Layout';
+import Layout from '../components/Layout';
 import SEO from '../components/seo';
-import BlogPostPreview from '../components/BlogPostPreview';
+import BlogPostPreview from '../components/blogPostPreview/BlogPostPreview';
 
 const IndexPage = () => {
   const blogPostsPreviewQuery = useStaticQuery(graphql`
@@ -19,6 +19,11 @@ const IndexPage = () => {
             subtitle
             slug
             publishedAt(formatString: "MMMM Do, YYYY")
+            backgroundImage {
+              file {
+                url
+              }
+            }
           }
         }
       }
@@ -28,8 +33,6 @@ const IndexPage = () => {
   return (
     <Layout>
       <SEO title="Engineering Blog" />
-      <h1>Hello Everyone!</h1>
-      <p>Welcome Rahul Rangnekar's Blog!</p>
       {blogPostsPreviewQuery.allContentfulBlogPost.edges.map(edge => (
         <BlogPostPreview key={edge.node.id} {...edge.node} />
       ))}
