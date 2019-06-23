@@ -1089,10 +1089,10 @@
     string-width "^2.0.0"
     strip-ansi "^3"
 
-"@rahrang/frame@^1.0.13":
-  version "1.0.13"
-  resolved "https://registry.yarnpkg.com/@rahrang/frame/-/frame-1.0.13.tgz#4e3f716b6ee4d19062e8c5b1488232b4fad1f10f"
-  integrity sha512-cv7aZbL77EglgswDBdii9q1bhnMT3zMOeYAPhz5fiCKGEaEYHyASwbUIIb8bwosISLQFIZpNIYQpp7m9QIaexQ==
+"@rahrang/frame@^1.0.14":
+  version "1.0.14"
+  resolved "https://registry.yarnpkg.com/@rahrang/frame/-/frame-1.0.14.tgz#f798a12b7819081684c3a5c8b3a1773afd6b50a6"
+  integrity sha512-Y7GaHk5Ipttaqi2HeqRr983BRMlcAtTtUp4x2xm/bHDmBgpqMpuPMsgsTBeOBNr/LFm3XbGcys9xcW0Dxxuzfg==
 
 "@reach/router@^1.1.1":
   version "1.2.1"
